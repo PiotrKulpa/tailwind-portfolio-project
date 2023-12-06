@@ -1,7 +1,7 @@
 import React from 'react'
-import { Props } from './types'
+import { ChildrenProps } from '../../global-types'
 
-function NavButton({children}: Props) {
+function NavButton({ children }: ChildrenProps) {
   return (
     <li className="flex justify-center items-center">{children}</li>
   )

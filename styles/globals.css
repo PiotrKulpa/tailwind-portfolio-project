@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200;300;500;700&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -17,6 +17,11 @@
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
   }
+}
+
+html
+{
+   font-size: 10px;
 }
 
 body {

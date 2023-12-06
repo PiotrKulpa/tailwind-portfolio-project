@@ -2,6 +2,6 @@ import React from 'react'
 
 export const Home = () => {
   return (
-    <div className='font-primary'>INDEX TEST T EXT AND CLASSES</div>
+    <div className="top-0 h-screen w-screen font-primary bg-[url('/img/slider/1.jpg')]"></div>
   )
 }
