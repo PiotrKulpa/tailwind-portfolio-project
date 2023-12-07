@@ -8,7 +8,7 @@ const Nav = () => {
   return (
     <>
     <MobileNav />
-    {/* <DesktopNav /> */}
+    <DesktopNav />
     </>
   )
 }

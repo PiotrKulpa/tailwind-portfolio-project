@@ -1,5 +1,6 @@
 import React from 'react'
 import Nav from '../nav'
+import Footer from '../footer'
 import { ChildrenProps } from '../../global-types'
 
 const Layout = ({children}: ChildrenProps) => {
@@ -7,6 +8,7 @@ const Layout = ({children}: ChildrenProps) => {
     <>
     <Nav />
     <div>{children}</div>
+    <Footer />
     </>
   )
 }
