@@ -1,4 +1,5 @@
 import { SocialIcon } from 'react-social-icons/component'
+import useHomePageCheck from '@/hooks/useHomePageCheck'
 import 'react-social-icons/facebook'
 import 'react-social-icons/twitter'
 import 'react-social-icons/instagram'
@@ -11,8 +12,12 @@ import Phone from '../icons/phone'
 import Envelope from '../icons/envelope'
 
 const Footer = () => {
+  const isHomePage = useHomePageCheck()
+
+  console.log(isHomePage)
+  
   return (
-    <>
+    <div className={`${isHomePage ? 'hidden': 'relative'}`}>
     <hr className="my-14 h-px bg-gray border-0"/>
     <div className="flex justify-center w-screen font-secondary text-xl font-medium">
       <div className="container">
@@ -51,7 +56,7 @@ const Footer = () => {
         </div>
       </div>
     </div>
-    </>
+    </div>
     
   )
 }
