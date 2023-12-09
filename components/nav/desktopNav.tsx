@@ -1,16 +1,15 @@
 import React from 'react'
 import Link from 'next/link'
-import { useRouter } from 'next/router'
 import NavButton  from './navButton'
 
 import { menuElements } from '@/utils'
+import useHomePageCheck from '@/hooks/useHomePageCheck'
 
 const DesktopNav = () => {
-  const router = useRouter()
-  const isHomePage = router.pathname === '/'
+  const isHomePage = useHomePageCheck()
   
   return (
-    <ul className={`hidden sticky z-10 w-screen sm:hidden h-30 lg:flex justify-center items-center font-primary text-base uppercase ${isHomePage ? 'text-primary' : 'text-secondary'}`}>
+    <ul className={`hidden ${isHomePage ? 'absolute' : 'sticky'} z-20 w-screen sm:hidden h-30 lg:flex justify-center items-center font-primary text-base uppercase ${isHomePage ? 'text-primary' : 'text-secondary'}`}>
       {menuElements.map((element, index) => {
         return element.isGraphic ? 
         <div key={index}className="flex justify-center items-center w-20 h-20 m-10 rounded-full border-slate-400 border-2"><NavButton><Link href={element.href}><span className="p-5">P</span></Link></NavButton></div> : 
