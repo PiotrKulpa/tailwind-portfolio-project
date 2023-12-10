@@ -12,7 +12,7 @@ const MobilepNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   return (
-    <div className={`sm:block lg:hidden absolute top-0 z-10 ${isHomePage ? 'text-primary': 'text-secondary'}`} >
+    <div className={`${isHomePage ? 'bg-transparent' : 'bg-primary'} sm:block lg:hidden ${isHomePage ? 'absolute' : 'fixed'} top-0 z-20 ${isHomePage ? 'text-primary': 'text-secondary'}`} >
       <div className="flex justify-between w-screen">
         <Link href="/"><p className="m-10 font-primary text-3xl">P</p></Link>
         <Hamburger setIsMenuOpen={setIsMenuOpen} isMenuOpen={isMenuOpen}/>
