@@ -21,7 +21,7 @@ const images = workImages.map((image) => ({
   customOverlay: (
     <div className="bg-secondary/30 w-full h-full" >
       <h1 className="text-primary text-3xl p-2 shadow-md">{image.title}</h1>
-      <h2 className="text-primary p-2 shadow-md">{image.caption}</h2>
+      <p className="text-primary p-2 shadow-md">{image.caption}</p>
     </div>
   ),
 }));
@@ -35,6 +35,10 @@ const WorkPage = () => {
 
   return (
     <div className="container m-auto">
+      <div className="text-center m-12">
+        <h3 className="">Check out and enjoy</h3>
+        <h4 className="uppercase">my great work</h4>
+      </div>
       <Gallery
         images={images}
         onClick={handleClick}
