@@ -28,3 +28,12 @@ html
 body {
   color: rgb(var(--foreground-rgb));
 }
+
+textarea, input, input:hover, input:focus, input:active, input[type="text"], input[type="text"]:focus, input[type="text"]:hover, input[type="text"]:active, input[type="email"], input[type="email"]:focus, input[type="email"]:hover, input[type="email"]:active, button, button[type="submit"] {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -ms-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+  outline: 0px !important;
+}
