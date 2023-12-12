@@ -1,3 +1,5 @@
+import ScrollToTop from "react-scroll-to-top";
+
 import { SocialIcon } from 'react-social-icons/component'
 import useHomePageCheck from '@/hooks/useHomePageCheck'
 import 'react-social-icons/facebook'
@@ -52,7 +54,10 @@ const Footer = () => {
             <SocialIcon url="www.google.com" style={{ height: 35, width: 35 }} className="m-6"/>
             </div>
           <p className="mt-3">{`Copyright © ${new Date().getFullYear()} Kulpa - All rights reserved.`}</p>
-          <div className="lg:absolute right-0 m-12 rounded-full cursor-pointer hover:bg-secondary hover:text-primary"><ChevronUp /></div>
+          <ScrollToTop 
+            className="flex justify-center items-center rounded-full cursor-pointer hover:bg-secondary hover:text-primary" 
+            style={{borderRadius: '40px', boxShadow: 'none', right: '25px', bottom: '25px'}} smooth component={<ChevronUp />}
+          />
         </div>
       </div>
     </div>
