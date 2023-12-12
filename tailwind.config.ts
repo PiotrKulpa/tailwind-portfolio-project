@@ -23,6 +23,7 @@ const config: Config = {
         'carousel-pattern-1': "url('/img/slider/1.jpg')",
         'carousel-pattern-2': "url('/img/slider/2.jpg')",
         'carousel-pattern-3': "url('/img/slider/3.jpg')",
+        'resume': "url('/img/author_img_2.jpg')",
       },
       keyframes: {
         fadeIn: {
