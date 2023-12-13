@@ -25,6 +25,7 @@ const config: Config = {
         'carousel-pattern-3': "url('/img/slider/3.jpg')",
         'resume': "url('/img/author_img_2.jpg')",
         'skills': "url('/img/skills-background.jpg')",
+        'testimonials': "url('/img/testimonial-image.jpg')",
       },
       keyframes: {
         fadeIn: {
@@ -44,7 +45,7 @@ const config: Config = {
         'h2': { fontSize: theme('fontSize.7xl'), fontFamily: theme('fontFamily.primary')},
         'h3': { fontSize: theme('fontSize.2xl'), fontFamily: theme('fontFamily.secondary') },
         'h4': { fontSize: theme('fontSize.6xl'), fontFamily: theme('fontFamily.primary')},
-        'h5': { fontSize: theme('fontSize.xl'), fontFamily: theme('fontFamily.primary')},
+        'h5': { fontSize: theme('fontSize.2xl'), fontFamily: theme('fontFamily.primary')},
       })
     })
   ],

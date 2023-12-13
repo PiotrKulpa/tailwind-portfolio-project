@@ -1,27 +1,45 @@
-const Testimonials = () => {
+import Slider from 'react-slick'
+import 'slick-carousel/slick/slick.css'
+import 'slick-carousel/slick/slick-theme.css'
+
+const Testimonials= () => {
+  var settings = {
+    dots: false,
+    autoplay: true,
+    fade: true,
+    autoplaySpeed: 10000,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    pauseOnHover: false
+  };
   return (
-    <section className="testimonials">
-      <div className="testimonials-over-image" />
-      <div className="container">
-        <div className="row">
-          <div className="col-md-12 testimonials-messages">
-            <div style={{display: 'none'}}>
-              <p className="comment">"Werbi in velit ligula eget vulputate ligulaviv sollicitudin rcusante orbi in velit"</p>
-              <p className="comment-author">John Doe | Company Name</p>
-            </div>
-            <div style={{display: 'block'}}>
-              <p className="comment">"Phasellus quis euismod velit. Suspendisse potenti etiam massa consectetur"</p>
-              <p className="comment-author">Michael Smith | Company Name</p>
-            </div>
-            <div style={{display: 'none'}}>
-              <p className="comment">"Vivamus luctus mauris quis massa in felis quis pharetra lobortis"</p>
-              <p className="comment-author">Jennifer Stop | Company Name</p>
+    <div className="text-primary font-secondary text-center bg-testimonials bg-no-repeat h-96 bg-cover">
+    <div className="bg-secondary opacity-80 h-full w-full">
+      <Slider {...settings}>
+          <div>
+            <div className="w-full h-96 flex flex-col justify-center items-center">
+              <p className="text-6xl font-bold">Don&apos;t comment bad code - rewrite it</p>
+              <p className="text-xl">Brian Kernighan</p>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  )
+          <div>
+            <div className="w-full h-96 flex flex-col justify-center items-center">
+              <p className="text-6xl font-bold">Any fool can write code that a computer can understand. Good programmers write code that humans can understand</p>
+              <p className="text-xl">Martin Fowler</p>
+            </div>
+          </div>
+          <div>
+            <div className="w-full h-96 flex flex-col justify-center items-center">
+              <p className="text-6xl font-bold">Everybody in this country should learn to program a computer because it teaches you how to think</p>
+              <p className="text-xl">Steve Jobs</p>
+            </div>
+          </div>
+      </Slider>
+    </div>
+    </div>
+  );
 }
 
 export default Testimonials
