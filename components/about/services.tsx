@@ -15,7 +15,7 @@ const Services = () => {
           <h4 className="uppercase text-center mt-5">my services</h4>
 
           <div className="flex flex-wrap mt-12">
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <div className="media">
                 <div className="media-left">
                   <a className="css3Animate" href="#" >
@@ -28,7 +28,7 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <div className="media">
                 <div className="media-left">
                   <a className="css3Animate" href="#" >
@@ -41,7 +41,7 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <div className="media">
                 <div className="media-left">
                   <a className="css3Animate" href="#" >
@@ -54,7 +54,7 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <div className="media">
                 <div className="media-left">
                   <a className="css3Animate" href="#" >
@@ -67,7 +67,7 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <div className="media">
                 <div className="media-left">
                   <a className="css3Animate" href="#" >
@@ -80,7 +80,7 @@ const Services = () => {
                 </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-full lg:w-1/2">
               <div className="media">
                 <div className="media-left">
                   <a className="css3Animate" href="#" >

@@ -4,9 +4,9 @@ const Resume = () => {
   return (
     <section className="section-resume">
       <div className="container m-auto">
-        <div className="flex  bg-resume bg-no-repeat py-20">
+        <div className="flex  bg-resume bg-no-repeat pt-20">
           <div className='hidden lg:block w-1/2'></div>
-          <div className="w-screen bg-opacity-[.80] lg:w-1/2  bg-primary  lg:ml-20">
+          <div className="w-full py-20 bg-opacity-[.80] lg:w-1/2  bg-primary  lg:ml-20">
             <h2 className="uppercase">Hello.<br />I'm Peter</h2>
             <h3>
             My name is Peter Kulpa, I'm a front-end developer based in Poland, Lublin, PL. I have developed many types of front-ends from well know applications to Ecommerce platforms. I'm passionate about cutting-edge, pixel-perfect, beautiful interfaces and intuitively implemented UX.</h3>

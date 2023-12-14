@@ -44,7 +44,7 @@ const config: Config = {
         'h1': { fontSize: theme('fontSize.3xl') },
         'h2': { fontSize: theme('fontSize.7xl'), fontFamily: theme('fontFamily.primary')},
         'h3': { fontSize: theme('fontSize.2xl'), fontFamily: theme('fontFamily.secondary') },
-        'h4': { fontSize: theme('fontSize.6xl'), fontFamily: theme('fontFamily.primary')},
+        'h4': { fontSize: theme('fontSize.6xl'), fontFamily: theme('fontFamily.primary'), lineHeight: '1'},
         'h5': { fontSize: theme('fontSize.2xl'), fontFamily: theme('fontFamily.primary')},
       })
     })

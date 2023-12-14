@@ -20,19 +20,19 @@ const Testimonials= () => {
       <Slider {...settings}>
           <div>
             <div className="w-full h-96 flex flex-col justify-center items-center">
-              <p className="text-6xl font-bold">Don&apos;t comment bad code - rewrite it</p>
+              <p className="text-4xl lg:text-6xl font-bold">Don&apos;t comment bad code - rewrite it</p>
               <p className="text-xl">Brian Kernighan</p>
             </div>
           </div>
           <div>
             <div className="w-full h-96 flex flex-col justify-center items-center">
-              <p className="text-6xl font-bold">Any fool can write code that a computer can understand. Good programmers write code that humans can understand</p>
+              <p className="text-4xl lg:text-6xl font-bold">Any fool can write code that a computer can understand. Good programmers write code that humans can understand</p>
               <p className="text-xl">Martin Fowler</p>
             </div>
           </div>
           <div>
             <div className="w-full h-96 flex flex-col justify-center items-center">
-              <p className="text-6xl font-bold">Everybody in this country should learn to program a computer because it teaches you how to think</p>
+              <p className="text-4xl lg:text-6xl font-bold">Everybody in this country should learn to program a computer because it teaches you how to think</p>
               <p className="text-xl">Steve Jobs</p>
             </div>
           </div>
