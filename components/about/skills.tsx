@@ -10,12 +10,12 @@ import Briefcase from '@/components/icons/briefcase'
 const Skills = () => {
   return (
     <section className="skills w-full bg-skills bg-no-repeat bg-cover py-20 text-2xl">
-      <div className="container m-auto">
+      <div className="container mx-auto">
         <div>
           <div>
             <h3 className="text-center">Here you can know my</h3>
             <h4 className="uppercase text-center mt-5">skills and experience</h4>
-            <div className="flex flex-row flex-wrap justify-start items-start gap-12 mt-12">
+            <div className="flex flex-row flex-wrap lg:flex-nowrap justify-start items-start gap-12 mt-12">
               <div className="w-full lg:w-1/3">
                 <h5 className="flex items-center uppercase"><Identifications /><span className="p-6">About me</span></h5>
                 <div className="skill-content">

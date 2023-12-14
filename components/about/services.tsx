@@ -9,8 +9,8 @@ import Chat from '@/components/icons/chat'
 const Services = () => {
   return (
     <section className="services py-20 text-2xl">
-      <div className="container m-auto">
-        <div className="row">
+      <div className="container mx-auto">
+        <div className="">
           <h3 className="text-center">Check out all</h3>
           <h4 className="uppercase text-center mt-5">my services</h4>
 
