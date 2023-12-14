@@ -8,3 +8,8 @@ export interface ChildrenProps {
 export interface CustomImage extends Image {
   original: string;
 }
+
+export interface HamburgerProps {
+  setIsMenuOpen: (isMenuOpen: boolean) => void;
+   isMenuOpen: boolean;
+}

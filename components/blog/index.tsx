@@ -18,7 +18,7 @@ const Blog = () => {
             </div>
             <h5 className="my-4 uppercase">The Rise of Jamstack Architecture in Front-End Development</h5>
             <p className="my-4 font-secondary font-light">NOVEMBER 21, 2013</p>
-            <p className="font-secondary font-light">Explore the evolution of web development with Jamstack and discover why it's gaining popularity among developers.</p>
+            <p className="font-secondary font-light">Explore the evolution of web development with Jamstack and discover why it&apos;s gaining popularity among developers.</p>
             <a className="uppercase flex justify-center items-center border w-40 h-12 text-center my-4 border-gray hover:bg-secondary hover:text-primary" href="https://docs.google.com/document/d/1HLEmikSVbuDQt5rJklYaWjQ4HQBrsN2Q_YjZAr5ZJ-s/edit?usp=sharing">
               <p>Read more</p>
             </a>
