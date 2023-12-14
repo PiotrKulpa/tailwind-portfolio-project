@@ -4,7 +4,7 @@ const Resume = () => {
   return (
     <section className="section-resume">
       <div className="container mx-auto">
-        <div className="flex  bg-resume bg-no-repeat pt-20">
+        <div className="flex  bg-resume bg-no-repeat">
           <div className='hidden lg:block w-1/2'></div>
           <div className="w-full py-20 bg-opacity-[.80] lg:w-1/2  bg-primary  lg:ml-20">
             <h2 className="uppercase">Hello.<br />I'm Peter</h2>
