@@ -51,6 +51,7 @@ const WorkPage = () => {
         open={index >= 0}
         index={index}
         close={() => setIndex(-1)}
+        styles={{ container: { backgroundColor: "rgba(0, 0, 0, .8)", columnGap: 0 } }}
       />
     </div>
   );

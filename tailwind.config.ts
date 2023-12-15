@@ -8,6 +8,15 @@ const config: Config = {
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
   theme: {
+    container: {
+      padding: {
+        DEFAULT: '2rem',
+        sm: '2rem',
+        lg: '4rem',
+        xl: '5rem',
+        '2xl': '6rem',
+      },
+    },
     fontFamily: {
       'primary': ['Montserrat', 'sans-serif'],
       'secondary': ['Raleway', 'sans-serif'],

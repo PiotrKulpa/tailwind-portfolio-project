@@ -1,12 +1,12 @@
 const ContactPage= () => {
   return (
     <div className="bg-secondary">
-      <div className="container m-auto flex flex-col justify-center items-center bg-secondary">
+      <div className="container mx-auto flex flex-col justify-center items-center bg-secondary">
         <div className="text-center m-12">
           <h3 className="text-primary">Say hello and leave</h3>
           <h4 className="text-primary uppercase">your message</h4>
         </div>
-        <div className="w-1/2 font-secondary text-xl ">
+        <div className="w-full lg:w-1/2 font-secondary text-xl ">
           <form className="flex flex-wrap  text-primary" action="#" id="contactform">
             <div className="w-1/2 pr-2">	
               <input type="text" name="name" className="form-control w-full bg-secondary border-primary border-b px-10 py-5" placeholder="NAME" />

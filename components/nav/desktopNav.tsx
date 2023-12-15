@@ -9,7 +9,7 @@ const DesktopNav = () => {
   const isHomePage = useHomePageCheck()
   
   return (
-    <ul className={`hidden ${isHomePage ? 'absolute' : 'sticky'} z-20 w-screen sm:hidden h-30 lg:flex justify-center items-center font-primary text-base uppercase ${isHomePage ? 'text-primary' : 'text-secondary'}`}>
+    <ul className={`hidden ${isHomePage ? 'absolute' : 'sticky'} bg-primary top-0 z-20 w-screen sm:hidden h-30 lg:flex justify-center items-center font-primary text-base uppercase ${isHomePage ? 'text-primary' : 'text-secondary'}`}>
       {menuElements.map((element, index) => {
         return element.isGraphic ? 
         <div key={index}className="flex justify-center items-center w-20 h-20 m-10 rounded-full border-slate-400 border-2"><NavButton><Link href={element.href}><span className="p-5">P</span></Link></NavButton></div> : 

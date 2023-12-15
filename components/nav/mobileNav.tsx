@@ -12,8 +12,8 @@ const MobilepNav = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   
   return (
-    <div className={`w-full ${isHomePage ? 'bg-transparent' : 'bg-primary'} sm:block lg:hidden ${isHomePage ? 'absolute' : 'fixed'} top-0 z-20 ${isHomePage ? 'text-primary': 'text-secondary'}`} >
-      <div className='container m-auto'>
+    <div className={`w-full ${isHomePage ? 'bg-transparent' : 'bg-primary'} sm:block lg:hidden ${isHomePage ? 'absolute' : 'fixed'} top-0 left-0 z-20 ${isHomePage ? 'text-primary': 'text-secondary'}`} >
+      <div className='container mx-auto'>
         <div className="flex justify-between items-center my-5">
           <div> <Link href="/"><p className="font-primary text-3xl">P</p></Link></div>
        

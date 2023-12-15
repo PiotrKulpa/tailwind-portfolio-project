@@ -145,7 +145,7 @@ const Skills = () => {
           </div>
         </div>
         <div>
-          <div className="flex flex-row flex-wrap gap-12">
+          <div className="flex flex-row flex-wrap lg:flex-nowrap gap-12">
             <div className="w-full lg:w-1/2">
               <h5 className="flex items-center uppercase"><Book /><span className="p-6">Education</span></h5>
               <hr style={{ color: "#ddd"}} className="" />
