@@ -1,9 +1,24 @@
 import Blog from '@/components/blog'
 
-const BlogPage= () => {
+const BlogPage= ({contentfulCredential}) => {
   return (
-    <div><Blog /></div>
+    <div><Blog contentfulCredential={contentfulCredential}/></div>
   )
 }
 
 export default BlogPage
+
+
+export async function getStaticProps() {
+  
+
+
+  return {
+    props: {
+      contentfulCredential: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+      }
+    },
+  }
+}
