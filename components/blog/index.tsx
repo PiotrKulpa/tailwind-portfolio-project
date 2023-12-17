@@ -1,9 +1,9 @@
 import { documentToReactComponents as renderRichText } from '@contentful/rich-text-react-renderer';
 
-import { ContentType } from '@/global-types';
+import { ContentType, ContentfulCredentialProps } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
 
-const Blog = ({ contentfulCredential }) => {
+const Blog = ({ contentfulCredential }: ContentfulCredentialProps) => {
   // TODO: response.items[0].fields?.content?.content path to rich text array in Blog
   // {renderRichText(content)}
 

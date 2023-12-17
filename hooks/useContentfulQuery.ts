@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import { createClient } from 'contentful';
+import { ContentfulQueryParams } from '@/global-types';
 
-const useContentfulQuery = ({ contentfulCredential, contentType }) => {
+const useContentfulQuery = ({ contentfulCredential, contentType }: ContentfulQueryParams) => {
 
   const[contentfulData, setContentfulData] = useState({});
 
