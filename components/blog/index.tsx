@@ -1,43 +1,22 @@
-import { useEffect, useState } from 'react'
-import { createClient } from 'contentful'
 import { documentToReactComponents as renderRichText } from '@contentful/rich-text-react-renderer'
+
+import { ContentType } from '@/global-types'
+import useContentfulQuery from '@/hooks/useContentfulQuery'
 
 const Blog = ({contentfulCredential}) => {
 
-  const[content, setContent] = useState('');
+  // TODO: response.items[0].fields?.content?.content path to rich text array in Blog
+  // {renderRichText(content)}
 
-const client = createClient({
-  space: contentfulCredential.spaceId,
-  accessToken: contentfulCredential.accessToken,
-});
+ const result = useContentfulQuery({contentfulCredential, contentType: ContentType.Blog})
 
-  
-
-
-  useEffect(() => {
-    client.getEntries({content_type: 'blog'})
-    .then((response) => {
-      
-      console.log(response.items)
-
-      if(response) {
-        setContent(response.items[0].fields?.content?.content[0])
-        console.log(response.items[0].fields?.content?.content[0])
-      }
-    
-    })
-    .catch((error) => console.log(error))
-
-    
-  }, [])
-
-  // TODO: response.items[0].fields?.content?.content path to rich text array
+ console.log('RESULT', result);
+ 
 
   return (
   <section className="container mx-auto">
     <h3 className="text-center">Stay update</h3>
     <h4 className="uppercase text-center mt-5">with our blog</h4>
-    <div>{renderRichText(content)}</div>
     <div className="mt-12 flex flex-row flex-wrap">
       <div className="w-full lg:w-1/3 p-5">
         <div className="flex flex-row gap-4">

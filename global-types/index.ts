@@ -13,3 +13,10 @@ export interface HamburgerProps {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
    isMenuOpen: boolean;
 }
+
+export enum ContentType {
+  Blog = 'blog',
+  Employment = 'employment',
+  Work = 'work',
+  Trainings = 'trainings',
+}
