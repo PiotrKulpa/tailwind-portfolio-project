@@ -1,16 +1,16 @@
-import React from 'react'
-import { useRouter } from 'next/router'
-import DesktopNav from './desktopNav'
-import MobileNav from './mobileNav'
+import React from 'react';
+import { useRouter } from 'next/router';
+import DesktopNav from './desktopNav';
+import MobileNav from './mobileNav';
 
 const Nav = () => {
-  const router = useRouter()
+  const router = useRouter();
   return (
     <>
-    <MobileNav />
-    <DesktopNav />
+      <MobileNav />
+      <DesktopNav />
     </>
-  )
-}
+  );
+};
 
-export default Nav
+export default Nav;

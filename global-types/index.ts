@@ -1,5 +1,5 @@
-import { ReactNode } from 'react'
-import { Image } from 'react-grid-gallery'
+import { ReactNode } from 'react';
+import { Image } from 'react-grid-gallery';
 
 export interface ChildrenProps {
   children?: ReactNode

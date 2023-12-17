@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react'
-import { createClient } from 'contentful'
+import { useEffect, useState } from 'react';
+import { createClient } from 'contentful';
 
 const useContentfulQuery = ({ contentfulCredential, contentType }) => {
 
@@ -26,4 +26,4 @@ const useContentfulQuery = ({ contentfulCredential, contentType }) => {
   return contentfulData;
 }
 
-export default useContentfulQuery
+export default useContentfulQuery;

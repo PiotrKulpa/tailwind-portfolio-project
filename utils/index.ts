@@ -1,4 +1,4 @@
-import { CustomImage } from '@/global-types'
+import { CustomImage } from '@/global-types';
 
 interface ExtendedCustomImage extends CustomImage {
   title?: string;
@@ -150,6 +150,5 @@ export const workImages: ExtendedCustomImage[] = [
     height: 1200,
     title: 'Puccini',
     caption: 'Puccini mobile Menu. Technology: Next.js, React, Graphql',
-  },
-  
+  }
 ];

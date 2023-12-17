@@ -5,7 +5,7 @@ const Loader = () => {
         <p className="text-primary font primary font-bold text-6xl">P</p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Loader
+export default Loader;

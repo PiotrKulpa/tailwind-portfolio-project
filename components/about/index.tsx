@@ -1,18 +1,17 @@
-import Resume from './resume'
-import Skills from './skills'
-import Testimonials from './testimonials'
-import Services from './services'
+import Resume from './resume';
+import Skills from './skills';
+import Testimonials from './testimonials';
+import Services from './services';
 
 const About = () => {
   return (
     <>
-    <Resume />
-    <Skills />
-    <Testimonials />
-    <Services />
+      <Resume />
+      <Skills />
+      <Testimonials />
+      <Services />
     </>
-    
-  )
-}
+  );
+};
 
-export default About
+export default About;

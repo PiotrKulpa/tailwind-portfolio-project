@@ -1,4 +1,4 @@
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 
 const useHomePageCheck = () => {
   const router = useRouter()
@@ -7,4 +7,4 @@ const useHomePageCheck = () => {
   return isHomePage
 }
 
-export default useHomePageCheck
+export default useHomePageCheck;
