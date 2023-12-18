@@ -15,9 +15,6 @@ import Envelope from '../icons/envelope';
 
 const Footer = () => {
   const isHomePage = useHomePageCheck();
-
-  console.log(isHomePage);
-
   return (
     <div className={`${isHomePage ? 'hidden' : 'relative'} w-full`}>
       <hr className="my-14 h-px bg-gray border-0" />

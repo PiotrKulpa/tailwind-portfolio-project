@@ -12,7 +12,7 @@ const BlogPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
 
 export default BlogPage;
 
-export async function getStaticProps() {
+export const getStaticProps = async () => {
   return {
     props: {
       contentfulCredential: {
@@ -21,4 +21,4 @@ export async function getStaticProps() {
       },
     },
   };
-}
+};

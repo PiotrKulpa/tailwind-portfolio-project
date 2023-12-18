@@ -1,13 +1,19 @@
 import { documentToReactComponents as renderRichText } from '@contentful/rich-text-react-renderer';
 
-import { ContentType, ContentfulCredentialProps } from '@/global-types';
+import { ContentType, ContentfulCredentialProps, OrderType } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
 
 const Blog = ({ contentfulCredential }: ContentfulCredentialProps) => {
   // TODO: response.items[0].fields?.content?.content path to rich text array in Blog
   // {renderRichText(content)}
 
-  const result = useContentfulQuery({ contentfulCredential, contentType: ContentType.Blog });
+  const result = useContentfulQuery({
+    contentfulCredential,
+    contentType: ContentType.Work,
+    limit: 100,
+    skip: 0,
+    order: [OrderType.CreatedAt],
+  });
 
   console.log('RESULT', result);
 

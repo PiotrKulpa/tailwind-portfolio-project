@@ -1,5 +1,6 @@
 import { ReactNode } from 'react';
 import { Image } from 'react-grid-gallery';
+import { OrderFilterPaths, EntrySys } from 'contentful';
 
 export interface ChildrenProps {
   children?: ReactNode
@@ -21,6 +22,10 @@ export enum ContentType {
   Trainings = 'trainings',
 }
 
+export enum OrderType {
+  CreatedAt = 'sys.createdAt',
+}
+
 interface ContentfulCredential {
   spaceId: string;
   accessToken: string;
@@ -33,4 +38,7 @@ export interface ContentfulCredentialProps {
 export interface ContentfulQueryParams {
   contentfulCredential: ContentfulCredential;
   contentType: string;
+  limit: number;
+  skip: number;
+  order?: (OrderFilterPaths<EntrySys, "sys"> | "sys.contentType.sys.id" | "-sys.contentType.sys.id")[];
 }

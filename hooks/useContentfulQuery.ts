@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { createClient } from 'contentful';
 import { ContentfulQueryParams } from '@/global-types';
 
-const useContentfulQuery = ({ contentfulCredential, contentType }: ContentfulQueryParams) => {
+const useContentfulQuery = ({ contentfulCredential, contentType, limit = 100, skip = 0, order}: ContentfulQueryParams): {items?: any[]} => {
 
   const[contentfulData, setContentfulData] = useState({});
 
@@ -12,16 +12,13 @@ const useContentfulQuery = ({ contentfulCredential, contentType }: ContentfulQue
   });
 
   useEffect(() => {
-    client.getEntries({content_type: contentType})
+    client.getEntries({content_type: contentType, limit, skip, order }) 
     .then((response) => {
       if(response) {
-        setContentfulData(response.items)
+        setContentfulData(response)
       }
-    
     })
-    .catch((error) => console.log(error))
-
-    
+    .catch((error) => console.log(error)) 
   }, [])
 
   return contentfulData;

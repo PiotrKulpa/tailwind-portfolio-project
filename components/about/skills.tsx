@@ -6,8 +6,27 @@ import Computer from '@/components/icons/computer';
 import CommandLine from '@/components/icons/commandLine';
 import Book from '@/components/icons/book';
 import Briefcase from '@/components/icons/briefcase';
+import useContentfulQuery from '@/hooks/useContentfulQuery';
+import { ContentType, ContentfulCredentialProps, OrderType } from '@/global-types';
 
-const Skills = () => {
+const Skills = ({ contentfulCredential }: ContentfulCredentialProps) => {
+  const { items: trainingItems = [] } = useContentfulQuery({
+    contentfulCredential,
+    contentType: ContentType.Trainings,
+    limit: 100,
+    skip: 0,
+    order: [OrderType.CreatedAt],
+  });
+
+  const { items: employmentItems = [] } = useContentfulQuery({
+    contentfulCredential,
+    contentType: ContentType.Employment,
+    limit: 100,
+    skip: 0,
+    order: [OrderType.CreatedAt],
+  });
+
+  console.log('Skills RESULT', employmentItems);
   return (
     <section className="skills w-full bg-skills bg-no-repeat bg-cover py-20 text-2xl">
       <div className="container mx-auto">
@@ -40,42 +59,22 @@ const Skills = () => {
                   <span className="p-6">Trainings</span>
                 </h5>
                 <div className="skill-content">
-                  <div>
-                    <p className="flex justify-between ">
-                      <span>Node.js with Mongoose</span>
-                      <span>2023</span>
-                    </p>
-                    <div className="my-5">
-                      <div className="bg-gray h-1 w-full" />
-                    </div>
-                  </div>
-                  <div className="bar">
-                    <p className="flex justify-between ">
-                      <span>Python</span>
-                      <span>2022</span>
-                    </p>
-                    <div className="my-5">
-                      <div className="bg-gray h-1 w-full" />
-                    </div>
-                  </div>
-                  <div className="bar">
-                    <p className="flex justify-between ">
-                      <span>Next.js</span>
-                      <span>2020</span>
-                    </p>
-                    <div className="my-5">
-                      <div className="bg-gray h-1 w-full" />
-                    </div>
-                  </div>
-                  <div className="bar">
-                    <p className="flex justify-between ">
-                      <span>Google Scholarschip: Front-End</span>
-                      <span>2017</span>
-                    </p>
-                    <div className="my-5">
-                      <div className="bg-gray h-1 w-full" />
-                    </div>
-                  </div>
+                  {trainingItems.length &&
+                    trainingItems.map(
+                      ({ fields: { trainingName = '', date = '' }, sys: { id } }) => {
+                        return (
+                          <div key={id}>
+                            <p className="flex justify-between ">
+                              <span>{trainingName}</span>
+                              <span>{date}</span>
+                            </p>
+                            <div className="my-5">
+                              <div className="bg-gray h-1 w-full" />
+                            </div>
+                          </div>
+                        );
+                      },
+                    )}
                 </div>
               </div>
               <div className="w-full lg:w-1/3">
@@ -232,60 +231,31 @@ const Skills = () => {
                 role="tablist"
                 aria-multiselectable="true"
               >
-                <div className="panel panel-default experience">
-                  <div className="border-b border-gray">
-                    <a className="flex gap-12 my-12">
-                      <p className="w-1/6">(2021 - Present)</p>
-                      <div className="border-l border-gray pl-5 w-5/6">
-                        <p className="job">
-                          <strong>Senior Front-end Developer</strong>
-                          <br />
-                          Company: Intive
-                        </p>
-                        <p>
-                          A+E - Smart TV apps - History Vault, Crime Central and Lifetime brands.
-                          Technology: React, Next, Typescript, Storybook, React Hooks, Styled
-                          Components, GraphQL,
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="panel panel-default experience">
-                  <div className="panel-heading" role="tab" id="heading5">
-                    <a className="flex gap-12 my-12">
-                      <p className="w-1/6">(2019 - 2021)</p>
-                      <div className="border-l border-gray pl-5 w-5/6">
-                        <p className="job">
-                          <strong>Front-end Developer</strong>
-                          <br />
-                          Monogo
-                        </p>
-                        <p>
-                          E-commerce for Converse, Puccini and many other companies. Technology:
-                          React, Next, Typescript, Storybook, React Hooks, GraphQL, Redux, Sass
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
-                <div className="panel panel-default experience">
-                  <div className="panel-heading" role="tab" id="heading5">
-                    <a className="flex gap-12 my-12">
-                      <p className="w-1/6">(2009 - 2018)</p>
-                      <div className="border-l border-gray pl-5 w-5/6">
-                        <p className="job">
-                          <strong>Web Developer</strong>
-                          <br />
-                          Freelancer
-                        </p>
-                        <p>
-                          Wordpress template development using jQuery, JS libraries, HTML and CSS
-                        </p>
-                      </div>
-                    </a>
-                  </div>
-                </div>
+                {employmentItems.length &&
+                  employmentItems.map(
+                    ({
+                      fields: { companyName = '', description = '', timePeriod = '', title = '' },
+                      sys: { id = '' },
+                    }) => {
+                      return (
+                        <div key={id} className="panel panel-default experience">
+                          <div className="border-b border-gray">
+                            <a className="flex gap-12 my-12">
+                              <p className="w-1/6">({timePeriod})</p>
+                              <div className="border-l border-gray pl-5 w-5/6">
+                                <p className="job">
+                                  <strong>{title}</strong>
+                                  <br />
+                                  Company: {companyName}
+                                </p>
+                                <p>{description}</p>
+                              </div>
+                            </a>
+                          </div>
+                        </div>
+                      );
+                    },
+                  )}
               </div>
             </div>
           </div>
