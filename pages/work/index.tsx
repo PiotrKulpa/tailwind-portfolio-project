@@ -1,33 +1,76 @@
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { Gallery } from 'react-grid-gallery';
-import Lightbox from 'yet-another-react-lightbox';
+import Lightbox, { SlideImage } from 'yet-another-react-lightbox';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
 import 'yet-another-react-lightbox/styles.css';
 
-import { workImages } from '@/utils';
-import { CustomImage } from '@/global-types';
+import { ContentType, CustomImage, ContentfulCredentialProps, OrderType } from '@/global-types';
+import useContentfulQuery from '@/hooks/useContentfulQuery';
 
-const slides = workImages.map(({ original, width, height }) => ({
-  src: original,
-  width,
-  height,
-  description: 'Slide description',
-}));
-
-const images = workImages.map(image => ({
-  ...image,
-  customOverlay: (
-    <div className="bg-secondary/30 w-full h-full">
-      <h1 className="text-primary text-3xl p-2 shadow-md">{image.title}</h1>
-      <p className="text-primary p-2 shadow-md">{image.caption}</p>
-    </div>
-  ),
-}));
-
-const WorkPage = () => {
+const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
   const [index, setIndex] = useState(-1);
 
   const handleClick = (index: number, item: CustomImage) => setIndex(index);
+
+  const { items: workItems = [] } = useContentfulQuery({
+    contentfulCredential,
+    contentType: ContentType.Work,
+    limit: 100,
+    skip: 0,
+    order: [OrderType.CreatedAt],
+  });
+
+  const slides: SlideImage[] = workItems.length
+    ? workItems.map(
+        ({
+          fields: {
+            image: {
+              fields: {
+                file: { url },
+              },
+            },
+            caption,
+            width,
+            height,
+          },
+        }) => ({
+          type: 'image',
+          src: url,
+          width,
+          height,
+          description: caption,
+        }),
+      )
+    : [];
+
+  const images = workItems.map(
+    ({
+      fields: {
+        image: {
+          fields: {
+            file: { url },
+          },
+        },
+        title,
+        caption,
+        width,
+        height,
+      },
+    }) => ({
+      src: url,
+      original: url,
+      width,
+      height,
+      title,
+      caption,
+      customOverlay: (
+        <div className="bg-secondary/30 w-full h-full">
+          <h1 className="text-primary text-3xl p-2 shadow-md">{title}</h1>
+          <p className="text-primary p-2 shadow-md">{caption}</p>
+        </div>
+      ),
+    }),
+  );
 
   return (
     <div className="container m-auto">
@@ -49,3 +92,14 @@ const WorkPage = () => {
 };
 
 export default WorkPage;
+
+export const getStaticProps = async () => {
+  return {
+    props: {
+      contentfulCredential: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
+  };
+};
