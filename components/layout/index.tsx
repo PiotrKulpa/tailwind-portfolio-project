@@ -1,15 +1,22 @@
+import { useState } from 'react';
+
 import Nav from '../nav';
 import Footer from '../footer';
 import Loader from '../loader';
 import { ChildrenProps } from '../../global-types';
+import { AppContext } from '@/utils';
 
 const Layout = ({ children }: ChildrenProps) => {
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="overflow-x-hidden">
-      {/* <Loader /> */}
-      <Nav />
-      <div className="mt-40">{children}</div>
-      <Footer />
+      <AppContext.Provider value={{ loading, setLoading }}>
+        {loading && <Loader />}
+        <Nav />
+        <div className="mt-40">{children}</div>
+        <Footer />
+      </AppContext.Provider>
     </div>
   );
 };

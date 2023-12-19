@@ -1,4 +1,8 @@
+import React from 'react';
+
 import { CustomImage } from '@/global-types';
+
+export const AppContext = React.createContext({} as any);
 
 interface ExtendedCustomImage extends CustomImage {
   title?: string;
