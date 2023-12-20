@@ -20,7 +20,11 @@ const DesktopNav = () => {
         return element.isGraphic ? (
           <div
             key={index}
-            className="flex justify-center items-center w-20 h-20 m-10 rounded-full border-slate-400 border-2"
+            className={`flex justify-center items-center w-20 h-20 m-10 rounded-full border-2 transition-all ${
+              isHomePage
+                ? 'border-primary/50 hover:border-primary'
+                : 'border-secondary/50 hover:border-secondary'
+            } duration-1000 hover:transition-all `}
           >
             <NavButton>
               <Link href={element.href}>
