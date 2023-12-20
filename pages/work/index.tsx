@@ -65,8 +65,8 @@ const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
       caption,
       customOverlay: (
         <div className="bg-secondary/30 w-full h-full">
-          <h1 className="text-primary text-3xl p-2 shadow-md">{title}</h1>
-          <p className="text-primary p-2 shadow-md">{caption}</p>
+          <h1 className="text-primary text-3xl p-2">{title}</h1>
+          <p className="text-primary p-2">{caption}</p>
         </div>
       ),
     }),

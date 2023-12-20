@@ -7,7 +7,7 @@ import Chat from '@/components/icons/chat';
 
 const Services = () => {
   return (
-    <section className="services py-20 text-2xl">
+    <section className="services py-40 text-2xl">
       <div className="container mx-auto">
         <div className="">
           <h3 className="text-center">Check out all</h3>

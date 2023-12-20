@@ -9,6 +9,8 @@ import { AppContext } from '@/utils';
 const Layout = ({ children }: ChildrenProps) => {
   const [loading, setLoading] = useState(false);
 
+  // TODO:detect if contact page
+
   return (
     <div className="overflow-x-hidden">
       <AppContext.Provider value={{ loading, setLoading }}>

@@ -6,7 +6,8 @@ const Carousel = () => {
   var settings = {
     dots: false,
     autoplay: true,
-    autoplaySpeed: 3000,
+    fade: true,
+    autoplaySpeed: 7000,
     infinite: true,
     speed: 500,
     slidesToShow: 1,
