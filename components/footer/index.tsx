@@ -1,7 +1,8 @@
 import ScrollToTop from 'react-scroll-to-top';
 
 import { SocialIcon } from 'react-social-icons/component';
-import useHomePageCheck from '@/hooks/useHomePageCheck';
+import usePageCheck from '@/hooks/usePageCheck';
+import { PageType } from '@/global-types';
 import 'react-social-icons/facebook';
 import 'react-social-icons/twitter';
 import 'react-social-icons/instagram';
@@ -14,9 +15,15 @@ import Phone from '../icons/phone';
 import Envelope from '../icons/envelope';
 
 const Footer = () => {
-  const isHomePage = useHomePageCheck();
+  const isHomePage = usePageCheck(PageType.Home);
+  const isContactPage = usePageCheck(PageType.Contact);
+
   return (
-    <div className={`${isHomePage ? 'hidden' : 'relative'} w-full`}>
+    <div
+      className={`${isHomePage ? 'hidden' : 'relative'} w-full ${
+        isContactPage ? 'bg-secondary text-primary' : 'bg-primary text-secondary'
+      }`}
+    >
       <hr className="my-14 h-px bg-gray border-0" />
       <div className="flex justify-center w-screen font-secondary text-xl font-medium">
         <div className="container mx-auto">
@@ -64,7 +71,7 @@ const Footer = () => {
             </div>
             <p className="mt-3">{`Copyright © ${new Date().getFullYear()} Kulpa - All rights reserved.`}</p>
             <ScrollToTop
-              className="flex justify-center items-center rounded-full cursor-pointer hover:bg-secondary hover:text-primary"
+              className="flex justify-center items-center rounded-full cursor-pointer text-secondary hover:bg-secondary hover:text-primary"
               style={{ borderRadius: '40px', boxShadow: 'none', right: '25px', bottom: '25px' }}
               smooth
               component={<ChevronUp />}
