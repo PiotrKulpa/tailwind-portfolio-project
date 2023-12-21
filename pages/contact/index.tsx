@@ -1,4 +1,5 @@
 const ContactPage = () => {
+  // INFO: formspree - programmatically form is not allowed in free version
   return (
     <div className="bg-secondary">
       <div className="container mx-auto flex flex-col justify-center items-center bg-secondary">
@@ -7,37 +8,46 @@ const ContactPage = () => {
           <h4 className="text-primary uppercase">your message</h4>
         </div>
         <div className="w-full lg:w-1/2 font-secondary text-xl ">
-          <form className="flex flex-wrap  text-primary" action="#" id="contactform">
+          <form
+            className="flex flex-wrap  text-primary"
+            action="https://formspree.io/f/xgegwwoa"
+            method="POST"
+          >
             <div className="w-1/2 pr-2">
               <input
+                id="name"
                 type="text"
                 name="name"
                 className="form-control w-full bg-secondary border-primary border-b px-10 py-5"
                 placeholder="NAME"
+                required
               />
             </div>
             <div className="w-1/2 pl-2">
               <input
-                type="text"
+                id="email"
+                type="email"
                 name="email"
                 className="form-control w-full bg-secondary border-primary border-b px-10 py-5"
                 placeholder="EMAIL"
+                required
               />
             </div>
             <div className="w-full my-6">
               <textarea
+                id="message"
                 name="message"
                 rows={5}
                 className="form-control w-full bg-secondary border-primary border-b px-10 py-5"
                 placeholder="MESSAGE"
                 defaultValue={''}
+                required
               />
             </div>
             <div className="w-full flex justify-center items-center m-20">
               <button
                 className="w-40 h-16 hover:bg-primary hover:text-secondary bg-secondary rounded-lg border-primary border"
                 type="submit"
-                value="Send"
               >
                 SEND
               </button>
