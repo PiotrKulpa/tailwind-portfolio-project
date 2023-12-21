@@ -3,10 +3,11 @@ import Link from 'next/link';
 import NavButton from './navButton';
 
 import { menuElements } from '@/utils';
-import useHomePageCheck from '@/hooks/useHomePageCheck';
+import usePageCheck from '@/hooks/usePageCheck';
+import { PageType } from '@/global-types';
 
 const DesktopNav = () => {
-  const isHomePage = useHomePageCheck();
+  const isHomePage = usePageCheck(PageType.Home);
 
   return (
     <ul

@@ -5,14 +5,19 @@ import Footer from '../footer';
 import Loader from '../loader';
 import { ChildrenProps } from '../../global-types';
 import { AppContext } from '@/utils';
+import usePageCheck from '@/hooks/usePageCheck';
+import { PageType } from '@/global-types';
 
 const Layout = ({ children }: ChildrenProps) => {
   const [loading, setLoading] = useState(false);
-
-  // TODO:detect if contact page
+  const isContactPage = usePageCheck(PageType.Contact);
 
   return (
-    <div className="overflow-x-hidden">
+    <div
+      className={`overflow-x-hidden ${
+        isContactPage ? 'bg-secondary text-primary' : 'bg-primary text-secondary'
+      }`}
+    >
       <AppContext.Provider value={{ loading, setLoading }}>
         {loading && <Loader />}
         <Nav />

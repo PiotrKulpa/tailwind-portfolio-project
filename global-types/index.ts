@@ -42,3 +42,8 @@ export interface ContentfulQueryParams {
   skip: number;
   order?: (OrderFilterPaths<EntrySys, "sys"> | "sys.contentType.sys.id" | "-sys.contentType.sys.id")[];
 }
+
+export enum PageType {
+  Home = '/',
+  Contact = '/contact',
+}
