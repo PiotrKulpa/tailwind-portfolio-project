@@ -37,10 +37,11 @@ export interface ContentfulCredentialProps {
 
 export interface ContentfulQueryParams {
   contentfulCredential: ContentfulCredential;
-  contentType: string;
-  limit: number;
-  skip: number;
+  contentType?: string;
+  limit?: number;
+  skip?: number;
   order?: (OrderFilterPaths<EntrySys, "sys"> | "sys.contentType.sys.id" | "-sys.contentType.sys.id")[];
+  entryId?: string;
 }
 
 export enum PageType {

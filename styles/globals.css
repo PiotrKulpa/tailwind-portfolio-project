@@ -62,3 +62,7 @@ textarea, input, input:hover, input:focus, input:active, input[type="text"], inp
 .ReactGridGallery_custom-overlay {
   z-index: 1;
 }
+
+.rich-text p {
+  padding-top: 12px;
+}
