@@ -7,15 +7,14 @@ import { ContentfulCredentialProps } from '@/global-types';
 
 const SingleBlogPost = ({ contentfulCredential }: ContentfulCredentialProps) => {
   const router = useRouter();
-  const { id } = router.query;
+  const { id = '' } = router.query;
 
   const { sys, fields: { title = '', entryText = '', imageUrl = '', content = {} } = {} } =
     useContentfulQuery({
       contentfulCredential,
-      entryId: id,
+      entryId: id as string,
     });
 
-  console.log('RESULT', title);
   return (
     <section className="container mx-auto">
       <div className="mt-12 flex flex-row flex-wrap">
