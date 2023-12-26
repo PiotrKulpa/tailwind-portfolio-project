@@ -1,4 +1,5 @@
 import { FC } from 'react';
+
 import About from '@/components/about';
 import { ContentfulCredentialProps } from '@/global-types';
 

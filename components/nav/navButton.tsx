@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { ChildrenProps } from '../../global-types';
 
 function NavButton({ children }: ChildrenProps) {

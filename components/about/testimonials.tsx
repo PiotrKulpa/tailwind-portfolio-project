@@ -1,9 +1,10 @@
-import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
+import Slider from 'react-slick';
+
 const Testimonials = () => {
-  var settings = {
+  const settings = {
     dots: false,
     autoplay: true,
     fade: true,

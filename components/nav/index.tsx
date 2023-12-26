@@ -1,5 +1,6 @@
-import React from 'react';
 import { useRouter } from 'next/router';
+import React from 'react';
+
 import DesktopNav from './desktopNav';
 import MobileNav from './mobileNav';
 
