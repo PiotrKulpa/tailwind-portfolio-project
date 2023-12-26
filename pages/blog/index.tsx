@@ -16,8 +16,8 @@ export const getStaticProps = async () => {
   return {
     props: {
       contentfulCredential: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+        spaceId: process.env.CONTENTFUL_SPACE_ID || null,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN || null,
       },
     },
   };
