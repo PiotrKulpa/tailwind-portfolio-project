@@ -14,7 +14,7 @@ const Layout = ({ children }: ChildrenProps) => {
 
   return (
     <div
-      className={`overflow-x-hidden ${
+      className={`overflow-x-hidden ${loading ? '' : 'animate-fadeInPage'} ${
         isContactPage ? 'bg-secondary text-primary' : 'bg-primary text-secondary'
       }`}
     >
