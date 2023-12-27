@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from 'react';
+import { useCallback, useEffect, useState, useContext } from 'react';
 import { createClient } from 'contentful';
 
 import { ContentfulQueryParams } from '@/global-types';
@@ -12,7 +12,7 @@ const useContentfulQuery = ({
   limit = 100,
   skip = 0,
   order,
-}: ContentfulQueryParams): { sys?: any; fields?: any; items?: any[] } => {
+}: ContentfulQueryParams): { sys?: any; total?: number; fields?: any; items?: any[] } => {
   const [contentfulData, setContentfulData] = useState({});
   const { setLoading } = useContext(AppContext);
 
@@ -21,7 +21,36 @@ const useContentfulQuery = ({
     accessToken: contentfulCredential.accessToken,
   });
 
-  useEffect(() => {
+  // useEffect(() => {
+  //   setLoading(true);
+  //   if (entryId) {
+  //     client
+  //       .getEntry(entryId)
+  //       .then(response => {
+  //         if (response) {
+  //           setContentfulData(response);
+  //         }
+  //       })
+  //       .catch(error => console.log(error))
+  //       .finally(() => {
+  //         setLoading(false);
+  //       });
+  //   } else {
+  //     client
+  //       .getEntries({ content_type: contentType, limit, skip, order })
+  //       .then(response => {
+  //         if (response) {
+  //           setContentfulData(response);
+  //         }
+  //       })
+  //       .catch(error => console.log(error))
+  //       .finally(() => {
+  //         setLoading(false);
+  //       });
+  //   }
+  // }, []);
+
+  const handleContentfulQuery = useCallback(() => {
     setLoading(true);
     if (entryId) {
       client
@@ -50,7 +79,7 @@ const useContentfulQuery = ({
     }
   }, []);
 
-  return contentfulData;
+  return { contentfulData, handleContentfulQuery };
 };
 
 export default useContentfulQuery;

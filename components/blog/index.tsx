@@ -1,16 +1,37 @@
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
+
 import { ContentType, ContentfulCredentialProps, OrderType } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
 import { months } from '@/utils';
 import Link from 'next/link';
 
+import { PaginationType } from '@/global-types';
+
+import Pagination from '@/components/pagination';
+
 const Blog = ({ contentfulCredential }: ContentfulCredentialProps) => {
-  const { items = [] } = useContentfulQuery({
+  const {
+    query: { page = '0' },
+  } = useRouter();
+
+  const {
+    handleContentfulQuery,
+    contentfulData: { total, items = [] },
+  } = useContentfulQuery({
     contentfulCredential,
     contentType: ContentType.Blog,
-    limit: 100,
-    skip: 0,
+    limit: PaginationType.BlogEntriesToShow,
+    skip: Number(page) * PaginationType.BlogEntriesToShow,
     order: [`-${OrderType.CreatedAt}`],
   });
+
+  console.log(total);
+
+  useEffect(() => {
+    handleContentfulQuery();
+    console.log({ page });
+  }, [page]);
 
   return (
     <section className="container mx-auto">
@@ -49,6 +70,7 @@ const Blog = ({ contentfulCredential }: ContentfulCredentialProps) => {
             );
           })}
       </div>
+      <Pagination totalEntries={total} entriesToShow={PaginationType.BlogEntriesToShow} />
     </section>
   );
 };
