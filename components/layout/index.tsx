@@ -1,12 +1,13 @@
 import { useState } from 'react';
 
-import Nav from '../nav';
+import { PageType } from '@/global-types';
+import usePageCheck from '@/hooks/usePageCheck';
+import { AppContext } from '@/utils';
+
+import { ChildrenProps } from '../../global-types';
 import Footer from '../footer';
 import Loader from '../loader';
-import { ChildrenProps } from '../../global-types';
-import { AppContext } from '@/utils';
-import usePageCheck from '@/hooks/usePageCheck';
-import { PageType } from '@/global-types';
+import Nav from '../nav';
 
 const Layout = ({ children }: ChildrenProps) => {
   const [loading, setLoading] = useState(false);

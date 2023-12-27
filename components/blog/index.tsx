@@ -1,7 +1,8 @@
-import { ContentType, ContentfulCredentialProps, OrderType } from '@/global-types';
+import Link from 'next/link';
+
+import { ContentfulCredentialProps, ContentType, OrderType } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
 import { months } from '@/utils';
-import Link from 'next/link';
 
 const Blog = ({ contentfulCredential }: ContentfulCredentialProps) => {
   const { items = [] } = useContentfulQuery({

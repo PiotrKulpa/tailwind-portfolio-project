@@ -1,5 +1,5 @@
-import { useEffect, useState, useContext } from 'react';
 import { createClient } from 'contentful';
+import { useContext, useEffect, useState } from 'react';
 
 import { ContentfulQueryParams } from '@/global-types';
 import { AppContext } from '@/utils';
