@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { ContentfulCredentialProps } from '@/global-types';
 
 import SingleBlogPost from '@/components/blog/singleBlogPost';
+import { ContentfulCredentialProps } from '@/global-types';
 
 const BlogPostPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
   return (

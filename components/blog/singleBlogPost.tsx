@@ -1,9 +1,9 @@
-import { useRouter } from 'next/router';
 import { documentToReactComponents as renderRichText } from '@contentful/rich-text-react-renderer';
-import useContentfulQuery from '@/hooks/useContentfulQuery';
-import { months } from '@/utils';
+import { useRouter } from 'next/router';
 
 import { ContentfulCredentialProps } from '@/global-types';
+import useContentfulQuery from '@/hooks/useContentfulQuery';
+import { months } from '@/utils';
 
 const SingleBlogPost = ({ contentfulCredential }: ContentfulCredentialProps) => {
   const router = useRouter();

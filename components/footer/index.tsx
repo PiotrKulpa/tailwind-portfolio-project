@@ -1,18 +1,19 @@
-import ScrollToTop from 'react-scroll-to-top';
-
-import { SocialIcon } from 'react-social-icons/component';
-import usePageCheck from '@/hooks/usePageCheck';
-import { PageType } from '@/global-types';
 import 'react-social-icons/facebook';
 import 'react-social-icons/twitter';
 import 'react-social-icons/instagram';
 import 'react-social-icons/pinterest';
 import 'react-social-icons/google';
 
+import ScrollToTop from 'react-scroll-to-top';
+import { SocialIcon } from 'react-social-icons/component';
+
+import { PageType } from '@/global-types';
+import usePageCheck from '@/hooks/usePageCheck';
+
 import ChevronUp from '../icons/chevronUp';
+import Envelope from '../icons/envelope';
 import MapPin from '../icons/mapPin';
 import Phone from '../icons/phone';
-import Envelope from '../icons/envelope';
 
 const Footer = () => {
   const isHomePage = usePageCheck(PageType.Home);

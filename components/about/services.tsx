@@ -1,9 +1,9 @@
+import Chat from '@/components/icons/chat';
 import CodeBrackets from '@/components/icons/codeBrackets';
-import Phone from '@/components/icons/phone';
-import Rocket from '@/components/icons/rocket';
 import CommandLine from '@/components/icons/commandLine';
 import Globe from '@/components/icons/globe';
-import Chat from '@/components/icons/chat';
+import Phone from '@/components/icons/phone';
+import Rocket from '@/components/icons/rocket';
 
 const Services = () => {
   return (
