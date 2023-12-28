@@ -1,3 +1,5 @@
+import 'yet-another-react-lightbox/styles.css';
+
 import { FC, useEffect, useState } from 'react';
 import { Gallery } from 'react-grid-gallery';
 import Lightbox, { SlideImage } from 'yet-another-react-lightbox';
@@ -52,7 +54,7 @@ const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
       fields: {
         image: {
           fields: {
-            file: { url = 0 },
+            file: { url = '' },
           },
         },
         title = '',
