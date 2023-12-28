@@ -37,7 +37,7 @@ export interface ContentfulCredentialProps {
 
 export interface ContentfulQueryParams {
   contentfulCredential: ContentfulCredential;
-  contentType?: string;
+  contentType?: string | string[];
   limit?: number;
   skip?: number;
   order?: (
@@ -54,5 +54,5 @@ export enum PageType {
 }
 
 export enum PaginationType {
-  BlogEntriesToShow = 1,
+  BlogEntriesToShow = 6,
 }

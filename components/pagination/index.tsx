@@ -2,12 +2,18 @@ import React from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
-const Pagination = ({ totalEntries, entriesToShow }) => {
+const Pagination = ({
+  totalEntries,
+  entriesToShow,
+}: {
+  totalEntries: number;
+  entriesToShow: number;
+}) => {
   const {
-    query: { page = '0' },
+    query: { page = '1' },
   } = useRouter();
 
-  console.log(page);
+  const maxPagesAllowed = Math.ceil(totalEntries / entriesToShow);
 
   return (
     <div
@@ -16,13 +22,17 @@ const Pagination = ({ totalEntries, entriesToShow }) => {
       } flex flex-row justify-between mt-12`}
     >
       <Link
-        className="uppercase flex justify-center items-center border w-40 h-12 text-center my-4 border-gray hover:bg-secondary hover:text-primary"
+        className={`${
+          Number(page) <= 1 && 'pointer-events-none cursor-not-allowed'
+        } uppercase flex justify-center items-center border w-40 h-12 text-center my-4 border-gray hover:bg-secondary hover:text-primary`}
         href={`blog?page=${Number(page) > 1 ? Number(page) - 1 : 1}`}
       >
         <p>Previous</p>
       </Link>
       <Link
-        className="uppercase flex justify-center items-center border w-40 h-12 text-center my-4 border-gray hover:bg-secondary hover:text-primary"
+        className={`${
+          Number(page) >= maxPagesAllowed && 'cursor-not-allowed pointer-events-none'
+        } uppercase flex justify-center items-center border w-40 h-12 text-center my-4 border-gray hover:bg-secondary hover:text-primary`}
         href={`blog?page=${Number(page) + 1}`}
       >
         <p>Next</p>

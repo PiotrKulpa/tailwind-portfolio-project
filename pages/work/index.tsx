@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { Gallery } from 'react-grid-gallery';
 import Lightbox, { SlideImage } from 'yet-another-react-lightbox';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
@@ -12,13 +12,18 @@ const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
 
   const handleClick = (index: number, item: CustomImage) => setIndex(index);
 
-  const { items: workItems = [] } = useContentfulQuery({
-    contentfulCredential,
-    contentType: ContentType.Work,
-    limit: 100,
-    skip: 0,
-    order: [OrderType.CreatedAt],
-  });
+  const { handleContentfulQuery, contentfulData: { items: workItems = [] } = {} } =
+    useContentfulQuery();
+
+  useEffect(() => {
+    handleContentfulQuery({
+      contentfulCredential,
+      contentType: ContentType.Work,
+      limit: 100,
+      skip: 0,
+      order: [OrderType.CreatedAt],
+    });
+  }, []);
 
   const slides: SlideImage[] = workItems.length
     ? workItems.map(
@@ -26,12 +31,12 @@ const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
           fields: {
             image: {
               fields: {
-                file: { url },
+                file: { url = '' },
               },
             },
-            caption,
-            width,
-            height,
+            caption = '',
+            width = 0,
+            height = 0,
           },
         }) => ({
           type: 'image',
@@ -48,13 +53,13 @@ const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
       fields: {
         image: {
           fields: {
-            file: { url },
+            file: { url = '' },
           },
         },
-        title,
-        caption,
-        width,
-        height,
+        title = '',
+        caption = '',
+        width = 0,
+        height = 0,
       },
     }) => ({
       src: url,
