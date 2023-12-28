@@ -1,56 +1,85 @@
 import { createClient } from 'contentful';
-import { useContext, useEffect, useState } from 'react';
+import { useCallback, useContext, useState } from 'react';
 
 import { ContentfulQueryParams } from '@/global-types';
 import { AppContext } from '@/utils';
 
+interface ContentfulQueryHookParams {
+  contentfulData: any;
+  handleContentfulQuery: () => ContentfulQueryParams;
+}
+
 // TODO: fix types
-const useContentfulQuery = ({
-  entryId,
-  contentfulCredential,
-  contentType,
-  limit = 100,
-  skip = 0,
-  order,
-}: ContentfulQueryParams): { sys?: any; fields?: any; items?: any[] } => {
-  const [contentfulData, setContentfulData] = useState({});
+const useContentfulQuery = () => {
+  const [contentfulData, setContentfulData] = useState<any>({});
   const { setLoading } = useContext(AppContext);
 
-  const client = createClient({
-    space: contentfulCredential.spaceId,
-    accessToken: contentfulCredential.accessToken,
-  });
+  const handleContentfulQuery = useCallback(
+    ({
+      entryId,
+      contentfulCredential,
+      contentType,
+      limit = 100,
+      skip = 0,
+      order,
+    }: ContentfulQueryParams) => {
+      setLoading(true);
 
-  useEffect(() => {
-    setLoading(true);
-    if (entryId) {
-      client
-        .getEntry(entryId)
-        .then(response => {
-          if (response) {
-            setContentfulData(response);
-          }
-        })
-        .catch(error => console.log(error))
-        .finally(() => {
-          setLoading(false);
-        });
-    } else {
-      client
-        .getEntries({ content_type: contentType, limit, skip, order })
-        .then(response => {
-          if (response) {
-            setContentfulData(response);
-          }
-        })
-        .catch(error => console.log(error))
-        .finally(() => {
-          setLoading(false);
-        });
-    }
-  }, []);
+      const client = createClient({
+        space: contentfulCredential.spaceId,
+        accessToken: contentfulCredential.accessToken,
+      });
 
-  return contentfulData;
+      if (entryId) {
+        client
+          .getEntry(entryId)
+          .then(response => {
+            if (response) {
+              setContentfulData(response);
+            }
+          })
+          .catch(error => console.log(error))
+          .finally(() => {
+            setLoading(false);
+          });
+      }
+
+      if (typeof contentType === 'string') {
+        client
+          .getEntries({ content_type: contentType, limit, skip, order })
+          .then(response => {
+            if (response) {
+              setContentfulData(response);
+            }
+          })
+          .catch(error => console.log(error))
+          .finally(() => {
+            setLoading(false);
+          });
+      }
+
+      if (Array.isArray(contentType)) {
+        const allPromises: any = [];
+        contentType.forEach(contentTypeName => {
+          allPromises.push(
+            Promise.resolve(
+              client.getEntries({ content_type: contentTypeName, limit, skip, order }),
+            ),
+          );
+        });
+
+        Promise.allSettled(allPromises)
+          .then(results => setContentfulData(results))
+          .catch(error => console.log(error))
+          .finally(() => {
+            setLoading(false);
+          });
+      }
+    },
+    [],
+  );
+
+  return { contentfulData, handleContentfulQuery };
 };
 
 export default useContentfulQuery;

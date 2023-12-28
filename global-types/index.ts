@@ -3,7 +3,7 @@ import { Image } from 'react-grid-gallery';
 import { OrderFilterPaths, EntrySys } from 'contentful';
 
 export interface ChildrenProps {
-  children?: ReactNode
+  children?: ReactNode;
 }
 
 export interface CustomImage extends Image {
@@ -12,7 +12,7 @@ export interface CustomImage extends Image {
 
 export interface HamburgerProps {
   setIsMenuOpen: (isMenuOpen: boolean) => void;
-   isMenuOpen: boolean;
+  isMenuOpen: boolean;
 }
 
 export enum ContentType {
@@ -37,14 +37,22 @@ export interface ContentfulCredentialProps {
 
 export interface ContentfulQueryParams {
   contentfulCredential: ContentfulCredential;
-  contentType?: string;
+  contentType?: string | string[];
   limit?: number;
   skip?: number;
-  order?: (OrderFilterPaths<EntrySys, "sys"> | "sys.contentType.sys.id" | "-sys.contentType.sys.id")[];
+  order?: (
+    | OrderFilterPaths<EntrySys, 'sys'>
+    | 'sys.contentType.sys.id'
+    | '-sys.contentType.sys.id'
+  )[];
   entryId?: string;
 }
 
 export enum PageType {
   Home = '/',
   Contact = '/contact',
+}
+
+export enum PaginationType {
+  BlogEntriesToShow = 6,
 }

@@ -1,6 +1,7 @@
 import 'react-circular-progressbar/dist/styles.css';
 
-import { buildStyles,CircularProgressbar } from 'react-circular-progressbar';
+import { useEffect } from 'react';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
 
 import Book from '@/components/icons/book';
 import Briefcase from '@/components/icons/briefcase';
@@ -11,21 +12,20 @@ import { ContentfulCredentialProps, ContentType, OrderType } from '@/global-type
 import useContentfulQuery from '@/hooks/useContentfulQuery';
 
 const Skills = ({ contentfulCredential }: ContentfulCredentialProps) => {
-  const { items: trainingItems = [] } = useContentfulQuery({
-    contentfulCredential,
-    contentType: ContentType.Trainings,
-    limit: 100,
-    skip: 0,
-    order: [OrderType.CreatedAt],
-  });
+  const { handleContentfulQuery, contentfulData } = useContentfulQuery();
 
-  const { items: employmentItems = [] } = useContentfulQuery({
-    contentfulCredential,
-    contentType: ContentType.Employment,
-    limit: 100,
-    skip: 0,
-    order: [OrderType.CreatedAt],
-  });
+  const { value: { items: trainingItems = [] } = {} } = contentfulData[0] || {};
+  const { value: { items: employmentItems = [] } = {} } = contentfulData[1] || {};
+
+  useEffect(() => {
+    handleContentfulQuery({
+      contentfulCredential,
+      contentType: [ContentType.Trainings, ContentType.Employment],
+      limit: 100,
+      skip: 0,
+      order: [OrderType.CreatedAt],
+    });
+  }, []);
 
   return (
     <section className="skills w-full bg-skills bg-no-repeat bg-cover py-40 text-2xl">
@@ -59,9 +59,9 @@ const Skills = ({ contentfulCredential }: ContentfulCredentialProps) => {
                   <span className="p-6">Trainings</span>
                 </h5>
                 <div className="skill-content">
-                  {trainingItems.length &&
+                  {trainingItems.length > 0 &&
                     trainingItems.map(
-                      ({ fields: { trainingName = '', date = '' }, sys: { id } }) => {
+                      ({ fields: { trainingName = '', date = '' }, sys: { id = '' } }) => {
                         return (
                           <div key={id}>
                             <p className="flex justify-between ">
@@ -231,8 +231,8 @@ const Skills = ({ contentfulCredential }: ContentfulCredentialProps) => {
                 role="tablist"
                 aria-multiselectable="true"
               >
-                {employmentItems.length &&
-                  employmentItems.map(
+                {employmentItems?.length > 0 &&
+                  employmentItems?.map(
                     ({
                       fields: { companyName = '', description = '', timePeriod = '', title = '' },
                       sys: { id = '' },

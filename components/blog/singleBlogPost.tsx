@@ -1,5 +1,6 @@
 import { documentToReactComponents as renderRichText } from '@contentful/rich-text-react-renderer';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 import { ContentfulCredentialProps } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
@@ -9,17 +10,26 @@ const SingleBlogPost = ({ contentfulCredential }: ContentfulCredentialProps) => 
   const router = useRouter();
   const { id = '' } = router.query;
 
-  const { sys, fields: { title = '', entryText = '', imageUrl = '', content = {} } = {} } =
-    useContentfulQuery({
+  const {
+    handleContentfulQuery,
+    contentfulData: {
+      sys,
+      fields: { title = '', entryText = '', imageUrl = '', content = {} } = {},
+    },
+  } = useContentfulQuery();
+
+  useEffect(() => {
+    handleContentfulQuery({
       contentfulCredential,
       entryId: id as string,
     });
+  }, []);
 
   return (
     <section className="container mx-auto">
       <div className="mt-12 flex flex-row flex-wrap">
         {title && entryText && imageUrl && (
-          <div key={sys.id} className="w-full p-5">
+          <div className="w-full p-5">
             <div className="flex flex-row gap-4">
               <div>
                 <div className="w-20 h-36 text-primary font-primary text-center post-date bg-secondary flex flex-col items-center justify-center">
