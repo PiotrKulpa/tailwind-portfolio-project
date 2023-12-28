@@ -1,14 +1,15 @@
-import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
-import { useEffect } from 'react';
 
-import Identifications from '@/components/icons/identifications';
-import Computer from '@/components/icons/computer';
-import CommandLine from '@/components/icons/commandLine';
+import { useEffect } from 'react';
+import { buildStyles, CircularProgressbar } from 'react-circular-progressbar';
+
 import Book from '@/components/icons/book';
 import Briefcase from '@/components/icons/briefcase';
+import CommandLine from '@/components/icons/commandLine';
+import Computer from '@/components/icons/computer';
+import Identifications from '@/components/icons/identifications';
+import { ContentfulCredentialProps, ContentType, OrderType } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
-import { ContentType, ContentfulCredentialProps, OrderType } from '@/global-types';
 
 const Skills = ({ contentfulCredential }: ContentfulCredentialProps) => {
   const { handleContentfulQuery, contentfulData } = useContentfulQuery();

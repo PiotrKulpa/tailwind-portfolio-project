@@ -1,10 +1,9 @@
-import { FC, useState, useEffect } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { Gallery } from 'react-grid-gallery';
 import Lightbox, { SlideImage } from 'yet-another-react-lightbox';
 import Captions from 'yet-another-react-lightbox/plugins/captions';
-import 'yet-another-react-lightbox/styles.css';
 
-import { ContentType, CustomImage, ContentfulCredentialProps, OrderType } from '@/global-types';
+import { ContentfulCredentialProps, ContentType, CustomImage, OrderType } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
 
 const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
@@ -53,7 +52,7 @@ const WorkPage: FC<ContentfulCredentialProps> = ({ contentfulCredential }) => {
       fields: {
         image: {
           fields: {
-            file: { url = '' },
+            file: { url = 0 },
           },
         },
         title = '',

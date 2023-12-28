@@ -1,10 +1,11 @@
-import React from 'react';
 import Link from 'next/link';
-import NavButton from './navButton';
+import React from 'react';
 
-import { menuElements } from '@/utils';
-import usePageCheck from '@/hooks/usePageCheck';
 import { PageType } from '@/global-types';
+import usePageCheck from '@/hooks/usePageCheck';
+import { menuElements } from '@/utils';
+
+import NavButton from './navButton';
 
 const DesktopNav = () => {
   const isHomePage = usePageCheck(PageType.Home);

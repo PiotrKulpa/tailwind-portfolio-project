@@ -1,14 +1,12 @@
+import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
-import { ContentType, ContentfulCredentialProps, OrderType } from '@/global-types';
+import Pagination from '@/components/pagination';
+import { ContentfulCredentialProps, ContentType, OrderType } from '@/global-types';
+import { PaginationType } from '@/global-types';
 import useContentfulQuery from '@/hooks/useContentfulQuery';
 import { months } from '@/utils';
-import Link from 'next/link';
-
-import { PaginationType } from '@/global-types';
-
-import Pagination from '@/components/pagination';
 
 const Blog = ({ contentfulCredential }: ContentfulCredentialProps) => {
   const {

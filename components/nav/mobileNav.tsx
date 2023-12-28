@@ -1,10 +1,11 @@
-import { useState } from 'react';
-import { useRouter } from 'next/router';
 import Link from 'next/link';
-import NavButton from './navButton';
-import Hamburger from './hamburger';
+import { useRouter } from 'next/router';
+import { useState } from 'react';
 
 import { menuElements } from '@/utils';
+
+import Hamburger from './hamburger';
+import NavButton from './navButton';
 
 const MobilepNav = () => {
   const router = useRouter();
