@@ -66,3 +66,8 @@ textarea, input, input:hover, input:focus, input:active, input[type="text"], inp
 .rich-text p {
   padding-top: 12px;
 }
+
+p:has(code) {
+  background: #eee;
+  padding: 0 25px;
+}

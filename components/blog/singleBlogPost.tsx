@@ -41,12 +41,14 @@ const SingleBlogPost = ({ contentfulCredential }: ContentfulCredentialProps) => 
                 <div className="max-h-96 overflow-hidden">
                   <img src={imageUrl} className="align-middle h-auto" />
                 </div>
-                <h5 className="my-6 uppercase">{title}</h5>
-                <p className="my-4 font-secondary font-light">
+                <h5 className="my-6 uppercase text-3xl">{title}</h5>
+                <p className="my-4 font-secondary font-light text-xl">
                   {new Date(sys.createdAt).toLocaleDateString()}
                 </p>
-                <p className="font-secondary font-light">{entryText}</p>
-                <div className="rich-text my-4 text-xl">{renderRichText(content)}</div>
+                <p className="font-secondary font-light text-2xl">{entryText}</p>
+                <div className="font-secondary rich-text my-4 text-2xl">
+                  {renderRichText(content)}
+                </div>
               </div>
             </div>
           </div>
